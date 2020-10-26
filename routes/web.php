@@ -70,11 +70,12 @@ Route::get('/midtrans/error', 'MidtransController@errorRedirect');
 | Admin Routes Group
 |--------------------------------------------------------------------------
 */
-Route::prefix('admin')->namespace('Admin')->group(function(){
+Route::prefix('admin')->namespace('Admin')->middleware(['auth'])->group(function(){
     Route::get('/', 'DashboardController@index')->name('dashboard');
     Route::resource('travel-package', 'TravelPackageController');
     Route::resource('gallery', 'GalleryController');
     Route::resource('transaction', 'TransactionController');
+    Route::resource('banner-partner', 'BannerPartnerController');
 });
 
 /*

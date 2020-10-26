@@ -5,35 +5,22 @@
 
 @section('content')
 
-<header class="text-center">
+<header class="text-center" style="background-image: url('{{ url('images/hero-1.jpg') }}')">
     <h1>
         Explore The Beautiful World
         <br />
         As Easy One Click
-      </h1>
-      <p class="mt-3">
+    </h1>
+    <p class="mt-3">
         You will see beautiful
         <br />
         moment you never see before
-      </p>
-      <a href="#popular" class="btn btn-get-started px-4 mt-4">
+    </p>
+    <a href="#popular" class="btn btn-get-started px-4 mt-4">
         Get started
-      </a>
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="{{ url('images/corousel1.jpg') }}" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="{{ url('images/corousel2.jpg') }}" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="{{ url('images/corousel3.jpg') }}" alt="Third slide">
-            </div>
-        </div>     
-    </div>
+    </a>
 </header>
-<main>
+<main> 
     <div class="container">
         <section class="section-stats row justify-content-center" id="stats">
             <div class="col-3 col-md-2 stats-detail">
@@ -46,7 +33,7 @@
             </div>
             <div class="col-3 col-md-2 stats-detail">
                 <h2>3K</h2>
-                <p>Hotels</p>
+                <p>Hotel</p>
             </div>
             <div class="col-3 col-md-2 stats-detail">
                 <h2>72</h2>
@@ -54,7 +41,7 @@
             </div>
         </section>
     </div>
-    
+
     <section class="section-popular" id="popular">
         <div class="container">
             <div class="row">
@@ -101,7 +88,13 @@
                     </p>
                 </div>
                 <div class="col-md-8 text-center">
-                    <img src="{{ url('images/partner.png') }}" class="img-patner" />
+                    <div class="row">
+                        @foreach ($banners as $banner)
+                            <a href="{{ $banner->link }}">    
+                                <img src="{{ $banner->count() ? Storage::url($banner->image) : '' }}" style="height: 70px" />
+                            </a>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>

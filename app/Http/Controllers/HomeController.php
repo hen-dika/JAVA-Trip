@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BannerPartner;
 use Illuminate\Http\Request;
 use App\TravelPackages;
 
@@ -25,7 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         $data = [
-            'items' => TravelPackages::with(['gallery'])->get()
+            'items' => TravelPackages::with(['gallery'])->get(),
+            'banners' => BannerPartner::where('status', 'active')->get()
         ];
         return view('pages.home', $data);
     }
