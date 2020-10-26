@@ -39,13 +39,13 @@
     <hr class="sidebar-divider my-0">
     <li class="nav-item {{ (Request::segment(2) == 'banner-partner') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('banner-partner.index') }}">
-            <i class="fas fa-fw fa-dollar-sign"></i>
+            <i class="far fa-handshake"></i>
             <span>Banner Partner</span>
         </a>
     </li>
     <hr class="sidebar-divider my-0">
     <li class="nav-item {{ (Request::segment(2) == 'about') ? 'active' : '' }}">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('about') }}">
             <i class="fas fa-tools"></i>
             <span>About</span>
         </a>

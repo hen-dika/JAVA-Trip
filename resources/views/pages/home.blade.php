@@ -3,7 +3,12 @@
 
 @section('title','JAVA-Trip|Home')
 
+@push('addon-style')
+    {!! SEOMeta::generate() !!}
+@endpush
+
 @section('content')
+
 
 <header class="text-center" style="background-image: url('{{ url('images/hero-1.jpg') }}')">
     <h1>

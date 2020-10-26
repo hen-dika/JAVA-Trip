@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -76,6 +77,8 @@ Route::prefix('admin')->namespace('Admin')->middleware(['auth'])->group(function
     Route::resource('gallery', 'GalleryController');
     Route::resource('transaction', 'TransactionController');
     Route::resource('banner-partner', 'BannerPartnerController');
+    Route::get('about', 'AboutController@index')->name('about');
+    Route::put('about/update/{id}', 'AboutController@update')->name('about-update');
 });
 
 /*
